@@ -1,0 +1,154 @@
+@media screen and (max-width: 1070px) {
+
+  .addArt__content {
+
+    .h2__text {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      align-items: center;
+    }
+  }
+
+  .editor {
+    display: flex;
+    align-content: center;
+    align-items: center;
+
+    .toolbarClassName {
+      display: flex;
+      align-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.addArt__content {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-top: 170px;
+
+  .h2__text {
+    margin-top: 80px;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 56px;
+    margin-bottom: 64px;
+    position: relative;
+    color: slategrey;
+  }
+
+  .valid__form {
+    margin-top: 100px;
+
+    .text {
+      margin-bottom: 24px;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 16px;
+      color: #242424;
+    }
+
+    input[type="text"] {
+      border: 1px solid #E1E1E1;
+    }
+
+    .input {
+      margin-bottom: 24px;
+      font-family: 'IBM Plex Sans', sans-serif;
+      width: 1070px;
+      height: 48px;
+      text-indent: 16px;
+    }
+
+    .input__text {
+      font-family: 'IBM Plex Sans', sans-serif;
+      width: 1070px;
+      height: 289px;
+      text-indent: 16px;
+      border: 1px solid #E1E1E1;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 14px;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 400;
+      color: #242424;
+    }
+  }
+
+  .valid__bottom {
+    display: flex;
+    justify-content: space-between;
+
+    .button__publish {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 15px;
+      background: slategrey;
+      width: 188px;
+      height: 48px;
+      color: #FFFFFF;
+      border: 1px solid slategrey;
+      margin-bottom: 110px;
+      margin-top: 48px;
+    }
+
+    .button__create_image {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 15px;
+      background: slategrey;
+      width: 188px;
+      height: 48px;
+      color: #FFFFFF;
+      border: 1px solid slategrey;
+      margin-bottom: 110px;
+      margin-top: 48px;
+
+      p {
+        margin: 0;
+        position: absolute;
+        margin-left: 40px;
+        margin-top: 15px;
+      }
+    }
+
+    .addPicture {
+      opacity: 0;
+      width: 188px;
+      height: 48px;
+    }
+  }
+
+  .editor {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 15px;
+    border: 1px solid #E1E1E1;
+    width: 1070px;
+    height: fit-content;
+
+    .toolbarClassName {
+      position: relative;
+      top: -262px;
+      justify-content: center;
+      width: 1070px;
+    }
+
+    .editorClassName {
+      position: relative;
+      top: -100px;
+      padding: 10px;
+      height: fit-content;
+    }
+  }
+}

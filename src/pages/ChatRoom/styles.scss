@@ -1,0 +1,201 @@
+.chatroomPage {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  margin: -8px;
+
+  .users {
+    position: absolute;
+    right: 0;
+    height: 100vh;
+    margin-top: 270px;
+    padding-right: 100px;
+    max-width: 200px;
+
+    p {
+      padding: 5px 8px;
+      border-radius: 5px;
+      color: #fff;
+      background: slategrey;
+    }
+
+    @media (max-width: 974px) {
+      max-width: 160px;
+    }
+
+    @media (max-width: 904px) {
+      padding-right: 30px;
+    }
+
+    @media (max-width: 465px) {
+      padding-right: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+
+      li {
+        padding: 0;
+      }
+
+      p {
+        padding: 0;
+        margin: 0;
+      }
+    }
+
+    @media (max-width: 427px) {
+      max-width: 100px;
+    }
+
+
+
+    p {
+      font-weight: bold;
+
+      @media (max-width: 465px) {
+        max-width: 90px;
+      }
+
+      @media (max-width: 371px) {
+        max-width: 200px;
+      }
+    }
+
+    .userContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-content: start;
+      align-items: start;
+
+      span {
+        font-weight: bold;
+        font-size: 20px;
+        padding-right: 5px;
+      }
+
+      .newUser {
+        word-break: break-word;
+        border: 1px solid slategrey;
+        border-radius: 5px;
+        opacity: 0.6;
+        margin-bottom: 8px;
+      }
+    }
+
+    @media (max-width: 371px) {
+      position: relative;
+      height: fit-content;
+      margin-top: 90px;
+      max-width: 200px;
+    }
+  }
+
+  .chatroomSection {
+    width: 40vw;
+    height: 60vh;
+    margin: auto;
+    border: 1px solid #eee;
+    position: relative;
+
+    p {
+      word-wrap:break-word;
+    }
+
+    span {
+      word-break: break-word;
+    }
+
+    @media (max-width: 904px) {
+      position: absolute;
+      left: 30px;
+      margin-left-left: 30px;
+      min-width: 400px;
+    }
+
+    @media (max-width: 620px) {
+      min-width: 300px;
+    }
+
+    @media (max-width: 512px) {
+      min-width: 250px;
+    }
+
+    @media (max-width: 465px) {
+      left: 5px;
+    }
+    @media (max-width: 371px) {
+      position: relative;
+      min-width: 270px;
+
+    }
+
+    .cardHeader {
+      height: 30px;
+      padding: 20px 0;
+      margin-bottom: 20px;
+      font-weight: bold;
+
+      span {
+        text-transform: uppercase;
+        color: #1976d2;
+      }
+    }
+
+    .chatroomContent {
+      position: absolute;
+      top: 2.5rem;
+      left: 0;
+      right: 0;
+      bottom: 4.5rem;
+      padding: 0.9rem;
+      overflow: auto;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: self-start;
+
+      .message {
+        margin: 5px 10px;
+        text-align: left;
+        max-width: 500px;
+
+        @media (max-width: 1300px) {
+          max-width: 400px;
+        }
+
+        @media (max-width: 1108px) {
+          max-width: 300px;
+        }
+
+        @media (max-width: 620px) {
+          max-width: 200px;
+        }
+
+        span {
+          color: #1976d2;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .chatroomActions {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 0.5rem;
+      border-top: 1px solid #eee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+
+       button {
+        margin-left: 20px;
+       }
+    }
+  }
+}

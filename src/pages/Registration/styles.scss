@@ -1,0 +1,36 @@
+.registration {
+  width: 100%;
+
+  .form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    .email {
+      width: 100%;
+      max-width: 300px;
+      margin-bottom: 20px;
+    }
+
+    .login {
+      width: 100%;
+      max-width: 300px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      width: 100%;
+      max-width: 200px;
+      margin-top: 10px;
+      border: 1px solid slategrey;
+    }
+
+    .pass {
+      width: 100%;
+      max-width: 300px;
+      margin-bottom: 10px;
+    }
+  }
+}
