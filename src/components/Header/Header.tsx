@@ -48,16 +48,17 @@ const Header = (socket: any) => {
             </Link>
           </div>
         ) : (
-            <div className={'loginContent'}>
-              <Link to={'/'}>Articles</Link>
-              <Link to={'/create-article'}>Create Article</Link>
-              <Link to={'/profile'}>Profile</Link>
-              <Link to={'/chat-rooms'}>Chat Rooms</Link>
-              <Link to={'/store'}>Store</Link>
-              <Button variant="outlined" className="reg-button" onClick={LogOut}>
-                Log Out
-              </Button>
-            </div>
+          <div className={'loginContent'}>
+            <Link to={'/'}>Articles</Link>
+            <Link to={'/create-article'}>Create Article</Link>
+            <Link to={'/inprof'}>My Articles</Link>
+            <Link to={'/profile'}>Profile</Link>
+            <Link to={'/chat-rooms'}>Chat Rooms</Link>
+            <Link to={'/store'}>Store</Link>
+            <Button variant="outlined" className="reg-button" onClick={LogOut}>
+              Log Out
+            </Button>
+          </div>
         )}
       </div>
     </header>

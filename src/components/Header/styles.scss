@@ -1,6 +1,6 @@
 .header {
   width: 100vw;
-  background: slategrey;
+  background: #323232;
   height: 80px;
   position: absolute;
   display: flex;
@@ -11,7 +11,7 @@
   .loginContent {
     a {
       color: #fff;
-      margin: 0 5px;
+      margin: 0 8px;
       text-decoration: underline;
     }
 
@@ -73,6 +73,7 @@
     .reg-button {
       color: #fff;
       border: 1px solid #fff;
+      margin-left: 20px;
     }
 
     .reg-button:hover {

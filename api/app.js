@@ -10,6 +10,7 @@ app.use(require('cors')());
 app.use('/user', require('./routes/user'));
 app.use('/messages', require('./routes/message'));
 app.use('/chatroom', require('./routes/chatroom'));
+app.use('/category', require('./routes/category'));
 
 const errorHandlers = require('./handlers/errorHandlers');
 app.use(errorHandlers.notFound);

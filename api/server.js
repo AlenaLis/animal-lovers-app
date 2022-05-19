@@ -17,6 +17,7 @@ mongoose.connection.once('open', () => {
 require('./models/User');
 require('./models/Chatroom');
 require('./models/Message');
+require('./models/Category');
 
 const app = require('./app');
 const sockets = [];
@@ -39,6 +40,7 @@ const jwt = require('jwt-then');
 const Message = mongoose.model('Message');
 const User = mongoose.model('User');
 const Chatroom = mongoose.model('Chatroom');
+const Category = mongoose.model('articles');
 
 io.use(async (socket, next) => {
   try {

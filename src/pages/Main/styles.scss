@@ -1,77 +1,96 @@
 .main {
+  flex-direction: column;
+  margin-top: 140px;
 
-  .main__top {
+  .mainTop {
+
     display: flex;
     justify-content: space-between;
     margin: 80px 0;
 
-    .main__art {
-      max-width: 582px;
-      max-height: 397px;
-      object-fit: contain;
+
+    .mainArt {
+      width: 582px;
+      height: 397px;
+      object-fit: cover;
     }
 
-    .main__panel {
+    .mainPanel {
       width: 464px;
       border-bottom-width: 1px;
       border-bottom-style: solid;
       border-bottom-color: #EBEBEB;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .leftButton {
+        text-align: left;
+        margin-left: 20px;
+
+        button {
+          font-family: 'Inter', sans-serif;
+          color: #8C8C8C;
+          font-size: 12px;
+          line-height: 12px;
+          background: #F7F7F7;
+          border: 1px solid #F7F7F7;
+          border-radius: 118px;
+          width: 100px;
+          height: 26px;
+          max-height: 100px;
+          overflow: hidden;
+        }
+      }
 
       a {
         text-decoration: none;
         color: #242424;
       }
 
-      button {
-        font-family: 'Inter', sans-serif;
-        color: #8C8C8C;
-        font-size: 12px;
-        line-height: 12px;
-        background: #F7F7F7;
-        border: 1px solid #F7F7F7;
-        border-radius: 118px;
-        width: 100px;
-        height: 26px;
-        max-height: 100px;
-        overflow: hidden;
-      }
-
-      .h2__text {
-        font-family: 'Playfair Display', serif;
+      .h2Text {
+        color: #323232;
         font-weight: bold;
         font-size: 32px;
         line-height: 40px;
         max-height: 40px;
         overflow: hidden;
+        text-align: left;
+        margin-left: 20px;
       }
 
-      .p__text {
+      .pText {
         font-family: 'IBM Plex Sans', sans-serif;
         color: #8C8C8C;
         font-size: 16px;
         line-height: 26px;
         max-height: 200px;
         overflow: hidden;
+        text-align: left;
+        margin-left: 10px;
       }
 
-      .main__panel__bottom {
+      .mainPanelBottom {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 342px;
+        text-align: left;
+        margin-left: 20px;
+        margin-bottom: 15px;
 
-        .main__panel__bottom__human {
+        .mainPanelBottomHuman {
           display: flex;
           justify-content: space-between;
           align-content: space-between;
 
-          .main__user_photo {
+          .mainUserPhoto {
             border-radius: 100px;
             width: 40px;
             height: 40px;
           }
 
-          .p__human {
+          .pHuman {
             margin-left: 8px;
             font-family: 'IBM Plex Sans', sans-serif;
             color: #8C8C8C;
@@ -81,7 +100,7 @@
           }
         }
 
-        .p__human__second {
+        .pHumanSecond {
           font-family: 'IBM Plex Sans', sans-serif;
           font-weight: 400;
           color: #8C8C8C;
@@ -89,11 +108,11 @@
           line-height: 12px;
         }
 
-        .main__panel__bottom__human__second {
+        .mainPanelBottomHumanSecond {
           display: flex;
           align-items: center;
 
-          .p__human__second {
+          .pHumanSecond {
             margin-left: 8px;
           }
         }
@@ -101,37 +120,56 @@
     }
   }
 
-  .main__bottom {
+  .mainBottom {
 
-    .h1__main {
-      font-family: 'Playfair Display', serif;
+    button {
+      background: darkseagreen;
+      color: #fff;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    .filterContainer {
+      display: flex;
+      justify-content: start;
+
+      button {
+        margin-bottom: 20px;
+      }
+    }
+
+    .h1Main {
       font-style: normal;
       font-weight: bold;
       font-size: 48px;
       line-height: 48px;
       margin-bottom: 56px;
+      color: #323232;
     }
 
-    .main__bottom__art {
+    .mainBottomArt {
 
-      .main__bottom__new {
+      .mainBottomNew {
         display: flex;
         justify-content: space-between;
-        margin: 0px 0px 40px 0px;
+        margin: 0 0 40px 0;
 
-        .second__arts {
-          object-fit: contain;
-          max-width: 367px;
-          max-height: 260px;
+        .secondArts {
+          object-fit: cover;
+          width: 367px;
+         height: 260px;
         }
 
-        .main__panel__bottom__art {
+        .mainPanelBottomArt {
           width: 680px;
           border-bottom-width: 1px;
           border-bottom-style: solid;
           border-bottom-color: #EBEBEB;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
 
-          button {
+        button {
             font-family: 'Inter', sans-serif;
             color: #8C8C8C;
             font-size: 12px;
@@ -143,10 +181,12 @@
             height: 26px;
             max-height: 100px;
             overflow: hidden;
+            float: left;
+            margin-left: 20px;
           }
 
-          .h2__text {
-            font-family: 'Playfair Display', serif;
+          .h2Text {
+            color: slategrey;
             font-weight: bold;
             font-size: 32px;
             line-height: 40px;
@@ -156,36 +196,43 @@
             a {
               text-decoration: none;
               color: #242424;
+              float: left;
+              margin-left: 20px;
             }
           }
 
-          .p__text {
+          .pText {
             font-family: 'IBM Plex Sans', sans-serif;
             color: #8C8C8C;
             font-size: 16px;
             line-height: 26px;
             max-height: 75px;
             overflow: hidden;
+            text-align: start;
+            margin-left: 10px;
           }
 
-          .main__panel__bottom {
+          .mainPanelBottom {
             display: flex;
             justify-content: space-between;
             align-items: center;
             width: 342px;
+            margin-bottom: 15px;
 
-            .main__panel__bottom__human {
+            .mainPanelBottomHuman {
               display: flex;
               justify-content: space-between;
               align-content: space-between;
 
-              .user__photo {
+              .userPhoto {
                 border-radius: 100px;
                 width: 40px;
                 height: 40px;
+                float: left;
+                margin-left: 20px;
               }
 
-              .p__human {
+              .pHuman {
                 margin-left: 8px;
                 font-family: 'IBM Plex Sans', sans-serif;
                 color: #8C8C8C;
@@ -195,7 +242,7 @@
               }
             }
 
-            .p__human__second {
+            .pHumanSecond {
               font-family: 'IBM Plex Sans', sans-serif;
               font-weight: 400;
               color: #8C8C8C;
@@ -203,11 +250,11 @@
               line-height: 12px;
             }
 
-            .main__panel__bottom__human__second {
+            .mainPanelBottomHumanSecond {
               display: flex;
               align-items: center;
 
-              .p__human__second {
+              .pHumanSecond {
                 margin-left: 8px;
               }
             }
@@ -216,11 +263,11 @@
       }
     }
 
-    .bottom__button {
+    .bottomButton {
       display: flex;
       justify-content: space-between;
 
-      .prev__next__button {
+      .prevNextButton {
         margin: 16px 0px 110px 0px;
         border: 1px solid rgb(190, 190, 190);
         width: 96px;
@@ -234,7 +281,7 @@
         background: #fff;
       }
 
-      .prev__next__button:hover {
+      .prevNextButton:hover {
         border: 1px solid #242424;
         color: #242424;
       }
@@ -242,12 +289,26 @@
   }
 }
 
-.h2__no__articles {
-  font-family: 'Playfair Display', serif;
-  font-weight: bold;
-  font-size: 40px;
-  line-height: 40px;
-  display: flex;
-  justify-content: center;
-  margin-top: 200px;
+.noContent {
+  .h2NoArticles {
+    color: #323232;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 40px;
+    display: flex;
+    justify-content: center;
+    margin-top: 130px;
+  }
+
+  button {
+    background: lightpink;
+    color: firebrick;
+  }
+
+  button:hover {
+    background: lightpink;
+    color: firebrick;
+  }
+
+
 }

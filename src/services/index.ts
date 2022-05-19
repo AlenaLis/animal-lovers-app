@@ -99,3 +99,66 @@ export const deleteChatroom = (data: string) => {
         return err.response;
     });
 };
+
+export const changeProfileInfo = async (data: any, id: any) => {
+  const url = `${urls.USER}/${id}`;
+  await ajaxWrapper({
+    method: 'PATCH',
+    url,
+    data,
+  }).then(data => data.data);
+};
+
+export const getProfileInfo = (data: any, id: any) => {
+  const url = `${urls.USER}/${id}`;
+  return ajaxWrapper({
+    method: 'GET',
+    url,
+    data,
+  }).then(data => data.data);
+};
+
+export const getAllArticles = () => {
+  const url = `${urls.CATEGORY}`;
+  return ajaxWrapper({
+    method: 'GET',
+    url,
+  }).then(data => data.data);
+};
+
+export const getOneArticle = (data: any, id: any) => {
+  const url = `${urls.CATEGORY}/${id}`;
+  return ajaxWrapper({
+    method: 'GET',
+    url,
+    data,
+  }).then(data => data.data);
+};
+
+export const getOneArticleById = (id: any) => {
+  const url = `${urls.CATEGORY}/article/${id}`;
+  return ajaxWrapper({
+    method: 'GET',
+    url,
+  }).then(data => data.data);
+};
+
+export const countWatches = (id: any) => {
+  const url = `${urls.CATEGORY}/article/${id}`;
+  return ajaxWrapper({
+    method: 'PATCH',
+    url,
+  }).then(data => data.data);
+};
+
+export const addOneArticle = (data: any) => {
+  const url = `${urls.CATEGORY}`;
+  return ajaxWrapper({
+    method: 'POST',
+    url,
+    data,
+    headers: {
+      Authorization: 'Bearer ' + localStorage.getItem('CC_Token'),
+    },
+  }).then(data => data.data);
+};

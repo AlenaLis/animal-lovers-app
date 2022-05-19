@@ -1,0 +1,233 @@
+@media screen and (max-width: 1035px) {
+
+  .inProfContainer {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+
+    .profContPhoto {
+      margin-bottom: 40px;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+
+  .mainBottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .mainBottomArt {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.profArtContainer {
+  width: 100%;
+  margin: 50px 48px 0 48px;
+
+.inProfContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 80px;
+
+  .profContPhoto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #FBFBFB;
+    width: 366px;
+    height: 366px;
+    align-items: center;
+    align-content: center;
+
+    .line {
+      border: 1px solid #F2F2F2;
+      box-sizing: border-box;
+      width: 346px;
+      height: 346px;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+
+      .user_photo {
+        border-radius: 100px;
+        width: 126px;
+        height: 126px;
+      }
+
+      .mainUserPhoto {
+        border-radius: 100px;
+        width: 126px;
+        height: 126px;
+      }
+
+      h3 {
+        font-size: 24px;
+        line-height: 24px;
+        color: #323232;
+        font-weight: 700;
+      }
+
+      p {
+        text-align: center;
+        margin: auto 35px;
+        color: #8C8C8C;
+        font-family: 'IBM Plex Sans', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+      img {
+        width: 126px;
+        height: 126px;
+      }
+    }
+  }
+
+
+  .coloumContent {
+    display: flex;
+    flex-direction: column;
+
+    .profContArt {
+
+      .mainBottomArtPage {
+
+        .mainBottomNewPage {
+          margin: 0 0 40px 0;
+          text-align: left;
+
+          .secondPic {
+            width: 664px;
+            height: 395px;
+            object-fit: cover;
+          }
+
+          .mainBottom {
+            width: 664px;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #EBEBEB;
+            margin-bottom: 40px;
+
+
+            button {
+              max-height: 200px;
+              overflow: hidden;
+              font-family: 'Inter', sans-serif;
+              color: #8C8C8C;
+              font-size: 12px;
+              line-height: 12px;
+              background: #F7F7F7;
+              border: 1px solid #F7F7F7;
+              border-radius: 118px;
+              width: 100px;
+              height: 26px;
+              margin: 25px 0 0 0;
+            }
+
+            .title {
+              max-height: 80px;
+              overflow: hidden;
+              font-weight: bold;
+              font-size: 32px;
+              line-height: 40px;
+              margin-bottom: 16px;
+              margin-top: 24px;
+
+              a {
+                text-decoration: none;
+                color: #323232;
+              }
+            }
+
+            .text {
+              max-height: 190px;
+              overflow: hidden;
+              font-family: 'IBM Plex Sans', sans-serif;
+              color: #8C8C8C;
+              font-size: 16px;
+              line-height: 26px;
+            }
+
+            .mainBottomArt {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              width: 342px;
+
+              .human {
+                display: flex;
+                justify-content: space-between;
+                align-content: space-between;
+                align-items: center;
+                height: 70px;
+
+                .user_photo {
+                  border-radius: 100px;
+                  width: 40px;
+                  height: 40px;
+                }
+
+                .humanText {
+                  margin-left: 8px;
+                  font-family: 'IBM Plex Sans', sans-serif;
+                  color: #8C8C8C;
+                  font-weight: 500;
+                  font-size: 14px;
+                  line-height: 14px;
+                }
+              }
+
+              .humanTextSec {
+                font-family: 'IBM Plex Sans', sans-serif;
+                font-weight: 400;
+                color: #8C8C8C;
+                font-size: 12px;
+                line-height: 12px;
+              }
+
+              .humanSec {
+                display: flex;
+                align-items: center;
+
+                .humanTextSec {
+                  margin-left: 8px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .but {
+
+    button {
+      margin: 15px 0 0 15px;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 15px;
+      background: #323232;
+      width: 200px;
+      height: 50px;
+      color: #FFFFFF;
+      border: 1px solid #323232;
+    }
+  }
+}
+}

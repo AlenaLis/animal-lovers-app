@@ -1,8 +1,8 @@
 @media screen and (max-width: 1070px) {
 
-  .addArt__content {
+  .addArtContent {
 
-    .h2__text {
+    .h2Text {
       display: flex;
       flex-direction: column;
       align-content: center;
@@ -23,28 +23,39 @@
   }
 }
 
-.addArt__content {
+.addArtContent {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  margin-top: 170px;
+  margin-top: 50px;
 
-  .h2__text {
+  .h2Text {
     margin-top: 80px;
-    font-family: 'Playfair Display', serif;
     font-weight: bold;
     font-size: 48px;
     line-height: 56px;
     margin-bottom: 64px;
     position: relative;
-    color: slategrey;
+    color:  #323232;
   }
 
-  .valid__form {
+  .validForm {
     margin-top: 100px;
 
+    .categoryContent {
+      width: 100%;
+      display: flex;
+      justify-content: start;
+      margin: 10px 0;
+
+      button {
+        text-transform: none;
+        border: 1px solid darkseagreen;
+        color: darkolivegreen;
+      }
+    }
+
     .text {
-      margin-bottom: 24px;
       font-family: 'IBM Plex Sans', sans-serif;
       font-style: normal;
       font-weight: normal;
@@ -58,7 +69,6 @@
     }
 
     .input {
-      margin-bottom: 24px;
       font-family: 'IBM Plex Sans', sans-serif;
       width: 1070px;
       height: 48px;
@@ -82,36 +92,38 @@
     }
   }
 
-  .valid__bottom {
+  .validBottom {
     display: flex;
     justify-content: space-between;
 
-    .button__publish {
+    .buttonPublish {
       font-family: 'IBM Plex Sans', sans-serif;
       font-weight: 400;
       font-size: 16px;
       line-height: 15px;
-      background: slategrey;
+      background:  #323232;
       width: 188px;
       height: 48px;
       color: #FFFFFF;
-      border: 1px solid slategrey;
+      border: 1px solid  #323232;
       margin-bottom: 110px;
-      margin-top: 48px;
+      margin-top: 30px;
+      cursor: pointer;
     }
 
-    .button__create_image {
+    .buttonCreateImage {
       font-family: 'IBM Plex Sans', sans-serif;
       font-weight: 400;
       font-size: 16px;
       line-height: 15px;
-      background: slategrey;
+      background:  #323232;
       width: 188px;
       height: 48px;
       color: #FFFFFF;
-      border: 1px solid slategrey;
+      border: 1px solid  #323232;
       margin-bottom: 110px;
-      margin-top: 48px;
+      margin-top: 30px;
+      cursor: pointer;
 
       p {
         margin: 0;
@@ -122,6 +134,7 @@
     }
 
     .addPicture {
+      cursor: pointer;
       opacity: 0;
       width: 188px;
       height: 48px;

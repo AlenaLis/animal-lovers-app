@@ -1,0 +1,201 @@
+@media screen and (max-width: 1070px) {
+  .profContainer {
+    .profContent {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      align-items: center;
+    }
+
+    .profCont {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      align-items: center;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+
+  .formContent {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+  }
+
+  .formContentSecond {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
+
+.profContainer {
+  width: 100%;
+  margin: 0 48px;
+
+  .profContent {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+
+    .h2Text {
+      margin-top: 80px;
+      color: #323232;
+      font-weight: bold;
+      font-size: 48px;
+      line-height: 56px;
+      margin-bottom: 64px;
+    }
+
+    .profCont {
+      display: flex;
+      justify-content: space-between;
+
+      .profContPhoto {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: #FBFBFB;
+        width: 366px;
+        height: 382px;
+        align-items: center;
+        align-content: center;
+
+        .line {
+          border: 1px solid #F2F2F2;
+          box-sizing: border-box;
+          width: 346px;
+          height: 362px;
+          align-content: center;
+          align-items: center;
+          justify-content: center;
+          display: flex;
+          flex-direction: column;
+
+          img {
+            margin-bottom: 32px;
+            border-radius: 100px;
+            width: 126px;
+            height: 126px;
+          }
+
+          .photo {
+            border: 1px solid #242424;
+            width: 164px;
+            height: 48px;
+            color: #242424;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 16px;
+            font-family: 'IBM Plex Sans', sans-serif;
+            margin-bottom: 24px;
+            background: #fff;
+
+            p {
+              position: absolute;
+              margin-left: 27px;
+              margin-bottom: 15px;
+            }
+
+            .addPicture {
+              width: 164px;
+              height: 48px;
+              opacity: 0;
+              cursor: pointer;
+            }
+
+            input {
+              width: 164px;
+              height: 48px;
+              opacity: 0;
+            }
+          }
+
+          .delete {
+            color: #323232;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 16px;
+            cursor: pointer;
+            border-bottom: 1px solid slategrey;
+          }
+        }
+      }
+
+      .profEdit {
+        display: flex;
+
+        .profForm {
+          display: flex;
+          flex-direction: column;
+          margin-top: -10px;
+
+          p {
+            color: #242424;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 14px;
+          }
+
+          .formContent {
+            display: flex;
+            justify-content: space-between;
+
+            .input {
+              width: 316px;
+              height: 47px;
+              font-family: 'IBM Plex Sans', sans-serif;
+              font-style: normal;
+              font-weight: normal;
+              font-size: 16px;
+              line-height: 16px;
+              color: #242424;
+              text-indent: 16px;
+            }
+          }
+
+          .formContentSecond {
+            margin-top: 20px;
+
+            .inputDesc {
+              padding-top: 10px;
+              font-family: 'IBM Plex Sans', sans-serif;
+              font-style: normal;
+              font-weight: normal;
+              font-size: 16px;
+              line-height: 16px;
+              color: #242424;
+              border: 1px solid #E1E1E1;
+              width: 664px;
+              height: 155px;
+              margin-bottom: 48px;
+              text-indent: 16px;
+            }
+          }
+
+          .saveButton {
+            cursor: pointer;
+            background: #323232;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 16px;
+            width: 164px;
+            height: 48px;
+            border: 1px solid #323232;;
+            color: #FFFFFF;
+          }
+        }
+      }
+    }
+  }
+}

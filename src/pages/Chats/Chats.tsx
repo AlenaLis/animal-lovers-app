@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import {useNavigate} from 'react-router-dom';
+import {Navigate, useNavigate} from 'react-router-dom';
 import {Button, TextField} from '@mui/material';
 
 import {deleteChatroom, postChatRoom} from '../../services';
@@ -93,7 +93,7 @@ const Chats = (socket: any) => {
   }, [update, chatRooms]);
 
   return (
-    <div className="main">
+    <div className="chats">
       {auth && socket ? (
         <div className="card">
           <div className="cardHeader">Rooms for chat</div>
@@ -111,16 +111,14 @@ const Chats = (socket: any) => {
               />
             </div>
           </div>
-          <Button variant="outlined" onClick={postRoom}>
+          <Button className="create" variant="outlined" onClick={postRoom}>
             Create Chatroom
           </Button>
           <div className="chatRooms">
             {chatRooms?.map((chatroom: {_id: string; name: string; userId: string}) => (
               <div className="room" key={chatroom?._id}>
                 <span>join</span>
-                  <Button onClick={() => JoinRoom(chatroom?._id, userId)}>
-                    '{chatroom?.name}'
-                  </Button>
+                <Button onClick={() => JoinRoom(chatroom?._id, userId)}>'{chatroom?.name}'</Button>
                 <span>room</span>
                 {chatroom?.userId === userId && (
                   <Button onClick={() => Delete(chatroom?._id)}>Delete</Button>
@@ -132,6 +130,7 @@ const Chats = (socket: any) => {
       ) : (
         <p>Please Log In to use Time Messenger</p>
       )}
+      {!token && <Navigate to="/auth" />}
     </div>
   );
 };

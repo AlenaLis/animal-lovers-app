@@ -18,7 +18,7 @@
       padding: 5px 8px;
       border-radius: 5px;
       color: #fff;
-      background: slategrey;
+      background: seagreen;
     }
 
     @media (max-width: 974px) {
@@ -140,7 +140,7 @@
 
       span {
         text-transform: uppercase;
-        color: #1976d2;
+        color: seagreen;
       }
     }
 
@@ -156,6 +156,7 @@
       justify-content: center;
       flex-direction: column;
       align-items: self-start;
+      padding-top: 40px;
 
       .message {
         margin: 5px 10px;
@@ -175,7 +176,7 @@
         }
 
         span {
-          color: #1976d2;
+          color: seagreen;
           font-weight: bold;
         }
       }
@@ -195,6 +196,8 @@
 
        button {
         margin-left: 20px;
+         color: seagreen;
+         border: 1px solid seagreen;
        }
     }
   }

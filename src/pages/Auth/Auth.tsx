@@ -18,6 +18,7 @@ const Auth = (setupSocket: any) => {
     }).then(res => {
       if (res?.statusText === 'OK') {
         localStorage.setItem('CC_Token', res.data.token);
+        localStorage.setItem('userId', res.data.userId);
         setupSocket.setupSocket();
         navigate('/chat-rooms');
       }

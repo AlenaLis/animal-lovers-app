@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import {Button, ListItem, TextField} from '@mui/material';
-import {useMatch, useNavigate} from 'react-router-dom';
+import {Navigate, useMatch, useNavigate} from 'react-router-dom';
 import {getChatroom} from '../../services';
 import makeToast from '../../helpers/Toaster';
 
@@ -145,6 +145,7 @@ const ChatRoom = (socket: any) => {
           </div>
         </div>
       </div>
+      {!token && <Navigate to="/auth" />}
     </div>
   );
 };
