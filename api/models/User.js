@@ -14,6 +14,16 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: 'Password is required!',
     },
+    lastName: {
+      type: String,
+    },
+    description: {
+      type: String,
+    },
+    imageSrc: {
+      type: Object,
+      default: null
+    },
   },
   {
     timestamps: true,

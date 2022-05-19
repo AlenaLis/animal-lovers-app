@@ -48,5 +48,39 @@ exports.login = async (req, res) => {
   res.json({
     message: 'User logged in successfully!',
     token,
+    userId: user.id
   });
 };
+
+exports.update = async function (req, res) {
+  const updated = {
+    name: req.body.name,
+    lastName: req.body.lastName,
+    description: req.body.description,
+    imageSrc: {
+      format: req.body.imageSrc.format,
+      dataUrl: req.body.imageSrc.dataUrl,
+    },
+  }
+
+  try {
+    const user = await User.findOneAndUpdate(
+        {_id: req.params.id},
+        {$set: updated},
+        {new: true}
+    )
+    res.status(200).json(user)
+  } catch (e) {
+    throw Error(`Can't update a user data`);
+  }
+}
+
+exports.getInfo = async function (req, res) {
+  try {
+    const articles = await User.find({_id: req.params.id})
+    res.status(200).json(articles)
+  } catch (e) {
+    throw Error(`Can't find a user`);
+  }
+}
+
