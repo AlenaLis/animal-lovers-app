@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import axios from 'axios';
 import {Button, ListItem, TextField} from '@mui/material';
 import {Navigate, useMatch, useNavigate} from 'react-router-dom';
-import {getChatroom} from '../../services';
+import {getChatroom, getProfileInfo} from '../../services';
 import makeToast from '../../helpers/Toaster';
 
 import './styles.scss';
@@ -14,6 +14,19 @@ const ChatRoom = (socket: any) => {
   const [allUsers, setAllUsers] = useState([]);
   const [userId, setUserId] = useState('');
   const [text, setText] = useState('');
+  const [myInfo, setMyInfo]: any = useState([]);
+
+  const userIdKey = localStorage.getItem('userId');
+
+  const getProfileApi = useCallback(() => {
+    getProfileInfo({}, userIdKey).then((res: any) => {
+      setMyInfo(res);
+    });
+  }, []);
+
+  useEffect(() => {
+    getProfileApi()
+  },[])
 
   const navigate = useNavigate();
 
@@ -146,6 +159,8 @@ const ChatRoom = (socket: any) => {
         </div>
       </div>
       {!token && <Navigate to="/auth" />}
+      {myInfo[0]?.admin === true && <Navigate to="/" />}
+
     </div>
   );
 };

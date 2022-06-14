@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import axios from 'axios';
 import {Navigate, useNavigate} from 'react-router-dom';
 import {Button, TextField} from '@mui/material';
 
-import {deleteChatroom, postChatRoom} from '../../services';
+import {deleteChatroom, getProfileInfo, postChatRoom} from '../../services';
 
 import './styles.scss';
 
@@ -13,6 +13,20 @@ const Chats = (socket: any) => {
   const [name, setName] = useState('');
   const [userId, setUserId] = useState('');
   const [chatRooms, setChatRooms] = useState([]);
+  const [myInfo, setMyInfo]: any = useState([]);
+
+  const userIdKey = localStorage.getItem('userId');
+
+  const getProfileApi = useCallback(() => {
+    getProfileInfo({}, userIdKey).then((res: any) => {
+      setMyInfo(res);
+    });
+  }, []);
+
+  useEffect(() => {
+    getProfileApi()
+  },[])
+  console.log(myInfo)
 
   const token = localStorage?.getItem('CC_Token');
   const navigate = useNavigate();
@@ -69,7 +83,6 @@ const Chats = (socket: any) => {
   const JoinRoom = (chatroomId: string, id: string) => {
     if (socket) {
       socket?.socket?.emit('joinRoom', chatroomId, id);
-
       navigate(`/chatroom/` + `${chatroomId}`);
     }
   };
@@ -131,6 +144,8 @@ const Chats = (socket: any) => {
         <p>Please Log In to use Time Messenger</p>
       )}
       {!token && <Navigate to="/auth" />}
+      {myInfo[0]?.admin === true && <Navigate to="/" />}
+
     </div>
   );
 };

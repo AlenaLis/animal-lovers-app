@@ -37,6 +37,7 @@ const MyArticlePage = () => {
   useEffect(() => {
     myArticles();
   }, []);
+  console.log(myInfo)
 
   return (
     <div className="profArtContainer">
@@ -53,7 +54,7 @@ const MyArticlePage = () => {
                   />
                 </div>
                 <div>
-                  <h3>{myInfo[0].name ? myInfo[0].name + ' ' + myInfo[0].lastName : ' '}</h3>
+                  <h3>{myInfo[0].name ? myInfo[0].name + ' ' + (myInfo[0]?.lastName? myInfo[0]?.lastName : ' ') : ' '}</h3>
                 </div>
                 <div>
                   <p>{myInfo[0].description ? myInfo[0].description : ''}</p>
@@ -69,6 +70,8 @@ const MyArticlePage = () => {
                 <div className="mainBottomArtPage">
                   <div className="mainBottomNewPage">
                     <div>
+                      {el?.moderation === false && <p style={{color : 'red'}}>This article has not yet been moderated</p>}
+                      {el?.moderation === true && <p style={{color : 'green'}}>This article has successfully passed moderation</p>}
                       <img
                         src={el.imageSrc.dataUrl || question}
                         alt="Image from the art"
@@ -99,7 +102,7 @@ const MyArticlePage = () => {
                             </div>
                             <div>
                               <p className="humanText">
-                                {elUser.name ? elUser.name + ' ' + elUser.lastName : ''}
+                                {elUser.name ? elUser.name + ' ' + (elUser?.lastName? elUser?.lastName : '') : ''}
                               </p>
                             </div>
                           </div>
@@ -144,13 +147,14 @@ const MyArticlePage = () => {
             </span>
           </div>
           <div className="but">
-            <Link to="/addarticle/">
+            <Link to="/create-article">
               <button>Add new article</button>
             </Link>
           </div>
         </div>
       )}
       {!token && <Navigate to="/auth" />}
+      {myInfo?.admin === true && <Navigate to="/" />}
     </div>
   );
 };

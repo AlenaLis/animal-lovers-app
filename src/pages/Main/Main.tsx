@@ -2,7 +2,7 @@ import React, {useState, useCallback, useEffect} from 'react';
 import {Link, Navigate} from 'react-router-dom';
 import {Button, Menu, MenuItem} from '@mui/material';
 
-import {getAllArticles} from '../../services';
+import {getAllArticles, getProfileInfo} from '../../services';
 import Fade from '@mui/material/Fade';
 
 import human1 from '../../assets/images/human.png';
@@ -10,11 +10,17 @@ import eye from '../../assets/images/eye icon.png';
 import question from '../../assets/images/question.png';
 
 import './styles.scss';
+import {urls} from "../../helpers/constant";
+import {ajaxWrapper} from "../../helpers/ajaxWrapper";
 
 const Main = () => {
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(6);
+  const [update, setUpdate]:any = useState('');
   const [myArticle, setMyArticle]: any = useState([]);
+  const [myInfo, setMyInfo]: any = useState([]);
+
+  const userId = localStorage.getItem('userId');
 
   const newArray = myArticle?.slice(startIndex, endIndex);
   const token = localStorage.getItem('CC_Token');
@@ -26,15 +32,40 @@ const Main = () => {
     }
   };
 
-  const getAllArticle = useCallback(() => {
-    getAllArticles().then(res => {
-      setMyArticle(res);
+  const getInfo = async () => {
+    await getProfileInfo({}, userId).then(res => {
+      setMyInfo(res);
     });
+  }
+
+
+  const getAllArticle = async () => {
+
+    await  getAllArticles().then(res => {
+      console.log(myInfo)
+      if (myInfo[0]?.admin === true) {
+        setMyArticle(res);
+      } else {
+        setMyArticle(res?.filter((el:any) => el?.moderation === true));
+      }
+    });
+
+  };
+
+
+
+  useEffect(() => {
+    getInfo()
+
   }, []);
 
   useEffect(() => {
     getAllArticle();
-  }, []);
+  }, [myInfo[0]?.admin]);
+
+  useEffect(() => {
+    console.log(myInfo[0], myArticle)
+  }, [myInfo, myArticle]);
 
   const goToNextPage = () => {
     if (myArticle.length > 6) {
@@ -42,6 +73,8 @@ const Main = () => {
       setEndIndex(endIndex + 6);
     }
   };
+
+
 
   let mainArticle = myArticle[0];
 
@@ -62,14 +95,18 @@ const Main = () => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = async (title: string) => {
-    console.log(title);
     if (title === 'no filters' || title == '[object Object]') {
       getAllArticles().then(res => {
         setMyArticle(res);
       });
     } else {
       await getAllArticles().then(res => {
-        setMyArticle(res?.filter((el: any) => el?.category === `#${title}`));
+
+        if (title==='not allowed') {
+          setMyArticle(res?.filter((el: any) => el?.moderation == false));
+        } else  {
+          setMyArticle(res?.filter((el: any) => el?.category === `#${title}`));
+        }
       });
     }
     setAnchorEl(null);
@@ -78,6 +115,38 @@ const Main = () => {
   const reload = () => {
     window?.location?.reload();
   };
+  const updateData = async (data:any) => {
+    await ajaxWrapper({
+      method: 'PATCH',
+      url:`http://localhost:8000/category/${data?.id}`,
+      data,
+      headers: {
+        Authorization: 'Bearer ' + localStorage.getItem('CC_Token'),
+      },
+    }).then(res => {
+      getAllArticle()
+      console.log(res)
+    }).catch(err => {})
+  }
+
+  const handleChange = async (el:any) => {
+    setUpdate(!el?.moderationn)
+
+      const data = {
+        title: el?.title,
+        id: el?._id,
+        category: el?.category,
+        textArt: el?.textArt,
+        moderation: !el?.moderation
+      }
+
+   await updateData(data);
+
+  }
+
+  useEffect(() => {
+    console.log(update)
+  },[update])
 
   return (
     <div>
@@ -158,6 +227,11 @@ const Main = () => {
                 onClose={handleClose}
                 TransitionComponent={Fade}
               >
+                {myInfo[0]?.admin === true &&
+                    <MenuItem onClick={() => handleClose('not allowed')} value="not allowed">
+                      for moderation
+                    </MenuItem>
+                }
                 <MenuItem onClick={() => handleClose('no filters')} value="no filters">
                   no filters
                 </MenuItem>
@@ -181,9 +255,16 @@ const Main = () => {
                 </MenuItem>
               </Menu>
             </div>
-            {newArray?.map((el: any) => (
+            {newArray?.map((el: any, key: number) => (
               <div className="mainBottomArt">
+                {myInfo[0]?.admin === true &&
+                    <div className={'moder'}>
+                      <Button key={key} onClick={() => handleChange(el)} className={`${el?.moderation}`}>{`${el?.moderation === true? 'allowed' : 'not allowed'}`}</Button>
+                    </div>
+                }
+
                 <div className="mainBottomNew">
+
                   <div>
                     <img
                       src={el.imageSrc.dataUrl || question}

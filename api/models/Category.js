@@ -36,6 +36,10 @@ const categorySchema = new Schema({
     type:String,
     default: ''
   },
+  moderation: {
+    type: Boolean,
+    default: false
+  },
 })
 
 module.exports = mongoose.model('articles', categorySchema)

@@ -49,8 +49,6 @@ exports.remove = async function (req, res) {
 
 exports.create = async (req, res) => {
     const user = await User.findById(req.body.id)
-    console.log('ererr',user)
-    console.log('req.body',req.body)
     const category = new Category({
       title: req.body.title,
       textArt: req.body.textArt,
@@ -72,7 +70,6 @@ exports.create = async (req, res) => {
       data: req.body.data,
     })
     await category.save()
-    // res.status(201).json(category)
   res.json({
     message: 'Article was created successfully',
   });
@@ -83,7 +80,8 @@ exports.update = async function (req, res) {
   const updated = {
     title: req.body.title,
     textArt: req.body.textArt,
-    category: req.body.category
+    category: req.body.category,
+    moderation: req.body.moderation
   }
 
   if (req.file) {
@@ -105,7 +103,6 @@ exports.update = async function (req, res) {
 exports.countWatch = async function (req, res) {
 
   const myArticle = await Category.find({_id: req.params.id})
-  const myCount = 1;
 
   let updated = {
     count: myArticle[0].count + 1

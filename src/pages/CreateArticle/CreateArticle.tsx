@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 // @ts-ignore
 import {Editor} from 'react-draft-wysiwyg';
 // @ts-ignore
@@ -14,7 +14,7 @@ import Fade from '@mui/material/Fade';
 
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import './styles.scss';
-import {addOneArticle} from '../../services';
+import {addOneArticle, getProfileInfo} from '../../services';
 import {List, Collapse, ListItemButton, ListItemText, Button, Menu, MenuItem} from '@mui/material';
 
 const CreateArticle = () => {
@@ -31,6 +31,19 @@ const CreateArticle = () => {
   });
 
   const [art, setMyArt] = useState();
+  const [myInfo, setMyInfo]: any = useState([]);
+
+  const userId = localStorage.getItem('userId');
+
+  const getProfileApi = useCallback(() => {
+    getProfileInfo({}, userId).then((res: any) => {
+      setMyInfo(res);
+    });
+  }, []);
+
+  useEffect(() => {
+    getProfileApi()
+  },[])
 
   const setArt = useCallback(async () => {
     await addOneArticle({
@@ -213,6 +226,7 @@ const CreateArticle = () => {
         </div>
       </div>
       {!token && <Navigate to="/auth" />}
+      {myInfo[0]?.admin === true && <Navigate to="/" />}
     </div>
   );
 };

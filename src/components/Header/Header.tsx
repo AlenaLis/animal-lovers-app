@@ -1,12 +1,26 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 
 import {Button} from '@mui/material';
 import {Link, useNavigate} from 'react-router-dom';
 
 import './styles.scss';
+import {getProfileInfo} from "../../services";
 
 const Header = (socket: any) => {
   const [auth, setAuth] = useState(false);
+  const [myInfo, setMyInfo]: any = useState([]);
+
+  const userId = localStorage.getItem('userId');
+
+  const getProfileApi = useCallback(async () => {
+    await getProfileInfo({}, userId).then(res => {
+      setMyInfo(res);
+    });
+  }, []);
+
+  useEffect(() => {
+    getProfileApi()
+  },[])
 
   const navigate = useNavigate();
   const token = localStorage?.getItem('CC_Token');
@@ -49,15 +63,23 @@ const Header = (socket: any) => {
           </div>
         ) : (
           <div className={'loginContent'}>
-            <Link to={'/'}>Articles</Link>
-            <Link to={'/create-article'}>Create Article</Link>
-            <Link to={'/inprof'}>My Articles</Link>
-            <Link to={'/profile'}>Profile</Link>
-            <Link to={'/chat-rooms'}>Chat Rooms</Link>
-            <Link to={'/store'}>Store</Link>
-            <Button variant="outlined" className="reg-button" onClick={LogOut}>
-              Log Out
-            </Button>
+            {myInfo[0]?.admin === true?
+                <Button variant="outlined" className="reg-button" onClick={LogOut}>
+                  Log Out
+                </Button>
+            :
+                <>
+                  <Link to={'/'}>Articles</Link>
+                  <Link to={'/create-article'}>Create Article</Link>
+                  <Link to={'/inprof'}>My Articles</Link>
+                  <Link to={'/profile'}>Profile</Link>
+                  <Link to={'/chat-rooms'}>Chat Rooms</Link>
+                  <Button variant="outlined" className="reg-button" onClick={LogOut}>
+                    Log Out
+                  </Button>
+                </>
+            }
+
           </div>
         )}
       </div>

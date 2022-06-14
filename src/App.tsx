@@ -13,7 +13,6 @@ import CreateArticle from './pages/CreateArticle/CreateArticle';
 import ProfileInfo from './pages/ProfileInfo/ProfileInfo';
 import FullArticle from './pages/FullArticle/FullArticle';
 import MyArticlePage from './pages/MyArticlePage/MyArticlePage';
-import Store from './pages/Store/Store';
 
 import './App.css';
 
@@ -56,7 +55,6 @@ const App = () => {
           <Route path="/" element={<Main />} />
           <Route path="/fullart/:id/" element={<FullArticle />} />
           <Route path="/inprof/" element={<MyArticlePage />} />
-          <Route path="/store" element={<Store />} />
           <Route path="/profile" element={<ProfileInfo />} />
           <Route path="/create-article" element={<CreateArticle />} />
           <Route path="/chat-rooms" element={<Chats socket={socket} />} />

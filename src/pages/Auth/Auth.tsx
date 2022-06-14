@@ -20,7 +20,8 @@ const Auth = (setupSocket: any) => {
         localStorage.setItem('CC_Token', res.data.token);
         localStorage.setItem('userId', res.data.userId);
         setupSocket.setupSocket();
-        navigate('/chat-rooms');
+        // navigate('/chat-rooms');
+        // window?.location?.reload()
       }
     });
   };

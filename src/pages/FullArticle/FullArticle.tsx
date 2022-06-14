@@ -1,7 +1,7 @@
 import {Link, Navigate} from 'react-router-dom';
 import React, {useCallback, useEffect, useState} from 'react';
 
-import {countWatches, getOneArticleById} from '../../services';
+import {countWatches, getOneArticleById, getProfileInfo} from '../../services';
 
 import question from '../../assets/images/question.png';
 import img_human from '../../assets/images/human.png';
@@ -11,6 +11,19 @@ import './styles.scss';
 
 const FullArticle = () => {
   const [myArticle, setMyArticle]: any = useState([]);
+  const [myInfo, setMyInfo]: any = useState([]);
+
+  const userId = localStorage.getItem('userId');
+
+  const getProfileApi = useCallback(() => {
+    getProfileInfo({}, userId).then((res: any) => {
+      setMyInfo(res);
+    });
+  }, []);
+
+  useEffect(() => {
+    getProfileApi()
+  },[])
 
   const currentLocation = window.location;
   const newPath = currentLocation.pathname;
@@ -103,6 +116,7 @@ const FullArticle = () => {
         </div>
       </div>
       {!token && <Navigate to="/auth" />}
+      {myInfo[0]?.admin === true && <Navigate to="/" />}
     </div>
   );
 };

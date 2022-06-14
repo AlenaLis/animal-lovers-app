@@ -203,6 +203,7 @@ const ProfileInfo = () => {
         )}
       </div>
       {!token && <Navigate to="/auth" />}
+      {myInfo[0]?.admin === true && <Navigate to="/" />}
     </div>
   );
 };

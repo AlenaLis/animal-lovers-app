@@ -149,6 +149,22 @@
 
     .mainBottomArt {
 
+      .moder {
+        display: flex;
+        justify-content: start;
+        margin-bottom: 10px;
+
+        .true {
+          background: green;
+        }
+
+        .false {
+          background: red;
+        }
+      }
+
+
+
       .mainBottomNew {
         display: flex;
         justify-content: space-between;
